@@ -5,11 +5,11 @@ import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validat
 import {ErrorStateMatcher} from '@angular/material/core';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-create',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class CreateComponent implements OnInit {
   user: IUser = {} ;
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
   createForm(user: IUser) {
     this.formCliente = this.formBuilder.group({
-      nome: [user.name],
+      name: [user.name],
       email: [user.email],
       password: [user.password],
     })
