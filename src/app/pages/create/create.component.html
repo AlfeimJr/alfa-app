@@ -1,45 +1,50 @@
-<div class="create-user-header">
-    <form 
-        class="example-container" 
-        style="display: flex; flex-direction: column" 
-        [formGroup]="formCliente"
-        method="POST"
-        (ngSubmit)="createUser()">
-        <mat-form-field appearance="outline">
-          <mat-label>Enter your email</mat-label>
-          <input 
-          matInput placeholder="pat@example.com" 
-          formControlName="email" name="email" 
-          required>
-          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>Enter your password</mat-label>
-            <input 
-            matInput [type]="hide ? 'password' : 'text'" 
-            formControlName="password" 
-            name="password">
-            <button mat-icon-button matSuffix (click)="hide = !hide" 
-            [attr.aria-label]="'Hide password'" 
-            [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-          </mat-form-field>
-
+<div class="create-container">
+  <div class="logo">
+    <img src="https://static.vecteezy.com/ti/fotos-gratis/p1/3723410-photo-top-view-a-large-set-collection-of-working-hand-and-power-tools-many-for-the-wooden-on-isolated-black-background-gr%C3%A1tis-foto.jpg" alt="">
+  </div>
+  <div class="create-user-header">
+      <form 
+          class="form-group-create-user"
+          [formGroup]="userForm"
+          method="POST"
+          (ngSubmit)="createUser()">
           <mat-form-field appearance="outline">
-            <mat-label>Enter your Name</mat-label>
+            <mat-label>Digite seu Email</mat-label>
             <input 
-            matInput type="text" 
-            formControlName="name" 
-            name="name">
+            matInput placeholder="pat@example.com" 
+            formControlName="email" 
+            name="email" 
+            required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+              <mat-label>Digite a senha</mat-label>
+              <input 
+              matInput [type]="hide ? 'password' : 'text'" 
+              formControlName="password" 
+              name="password">
+              <button mat-icon-button matSuffix (click)="hide = !hide" 
+              [attr.aria-label]="'Hide password'" 
+              [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>Digite o seu nome</mat-label>
+              <input 
+              matInput type="text" 
+              formControlName="name" 
+              name="name">
+            </mat-form-field>
+  
+            <button mat-raised-button type="submit" [disabled]="userForm.pristine">
+              Criar
+            </button>
 
-          <button mat-raised-button type="submit">
-            Add User
-          </button>
-    </form>
+            <p *ngIf="user.email">Usuário criado com sucesso!</p>
+      </form>
+  </div>
+  
 </div>
-
-
-<button (click)="createUser()" >Create user</button>

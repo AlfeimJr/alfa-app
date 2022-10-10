@@ -13,8 +13,7 @@ export class CreateComponent implements OnInit {
   user: IUser = {} ;
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
-  formCliente!: FormGroup;
-  password = new FormControl ('')
+  userForm!: FormGroup; 
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder
@@ -26,13 +25,13 @@ export class CreateComponent implements OnInit {
     
   }
   createUser(){
-    this.user = this.formCliente.value
+    this.user = this.userForm.value
     this.userService.getUser(this.user).subscribe(user =>{
       console.log(user);
     })
   }
   createForm(user: IUser) {
-    this.formCliente = this.formBuilder.group({
+    this.userForm = this.formBuilder.group({
       name: [user.name],
       email: [user.email],
       password: [user.password],
@@ -40,10 +39,10 @@ export class CreateComponent implements OnInit {
   }
   getErrorMessage() {
     if (this.email.hasError('required')) {
-      return 'You must enter a value';
+      return 'Digite um email';
     }
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    return this.email.hasError('email') ? 'Esse email não é valido' : '';
   }
   
 }

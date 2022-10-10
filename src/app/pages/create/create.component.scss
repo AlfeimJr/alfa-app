@@ -1,0 +1,21 @@
+.create-container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .logo{
+        width: 100%;
+        img{
+            max-width: 100%;
+            height: 100%;
+        }
+    }
+    .create-user-header{
+        padding: 0px 59px;
+        display: flex;
+        align-items: center;
+        .form-group-create-user{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
