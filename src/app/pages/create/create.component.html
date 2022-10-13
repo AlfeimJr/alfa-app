@@ -3,65 +3,66 @@
     <img src="https://static.vecteezy.com/ti/fotos-gratis/p1/3723410-photo-top-view-a-large-set-collection-of-working-hand-and-power-tools-many-for-the-wooden-on-isolated-black-background-gr%C3%A1tis-foto.jpg" alt="">
   </div>
   <div class="create-user-header">
-      <form 
+      <form
           class="form-group-create-user"
           [formGroup]="userForm"
           method="POST"
           (ngSubmit)="createUser()">
           <mat-form-field appearance="outline">
             <mat-label>Digite seu Email</mat-label>
-            <input 
-            matInput placeholder="pat@example.com" 
-            formControlName="email" 
-            name="email" 
+            <input
+            matInput placeholder="pat@example.com"
+            formControlName="email"
+            name="email"
             required>
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
-  
+
           <mat-form-field appearance="outline">
               <mat-label>Digite a senha</mat-label>
-              <input 
-              matInput [type]="hide ? 'password' : 'text'" 
-              formControlName="password" 
+              <input
+              matInput [type]="hide ? 'password' : 'text'"
+              formControlName="password"
               name="password">
-              <p 
-              mat-icon-button 
-              matSuffix 
-              (click)="hide = !hide" 
-              [attr.aria-label]="'Hide password'" 
+              <p
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide"
               class="hide-password"
               >
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </p>
             </mat-form-field>
-  
+
             <mat-form-field appearance="outline">
               <mat-label>Digite o seu nome</mat-label>
-              <input 
-              matInput type="text" 
-              formControlName="name" 
+              <input
+              matInput type="text"
+              formControlName="name"
               name="name">
             </mat-form-field>
             <div class="submit-group">
-              <button 
-              mat-raised-button 
-              type="submit" 
+              <button
+              mat-raised-button
+              type="submit"
               [disabled]="userForm.pristine"
               class="submit-form"
               >
                 Criar
               </button>
-              <button 
+              <button routerLink="/login"
               class="submit-form"
               >
                 Login
               </button>
-              
+
             </div>
-           
+
             <p *ngIf="user.email">Usuário criado com sucesso!</p>
       </form>
+
   </div>
-  
+
 </div>

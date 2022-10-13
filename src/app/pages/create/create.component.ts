@@ -10,10 +10,15 @@ import {ErrorStateMatcher} from '@angular/material/core';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-  user: IUser = {} ;
+  user: IUser = {
+    name: '',
+    email: '',
+    password: '',
+    role:0,
+  } ;
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
-  userForm!: FormGroup; 
+  userForm!: FormGroup;
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder
@@ -22,11 +27,11 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
     this.createForm(this.user)
     console.log(this.user);
-    
+
   }
   createUser(){
     this.user = this.userForm.value
-    this.userService.getUser(this.user).subscribe(user =>{
+    this.userService.createUser(this.user).subscribe(user =>{
       console.log(user);
     })
   }
@@ -44,5 +49,5 @@ export class CreateComponent implements OnInit {
 
     return this.email.hasError('email') ? 'Esse email não é valido' : '';
   }
-  
+
 }
