@@ -15,13 +15,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import { TokenInterceptor } from './services/interceptors/token.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TopBarComponent } from './pages/top-bar/top-bar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CreateComponent,
     LoginComponent,
     HomeComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    TopBarComponent,
   ],
   imports: [
     BrowserModule,

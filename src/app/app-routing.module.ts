@@ -10,8 +10,7 @@ import { UsuarioNaoAutenticadoGuard } from './services/guards/usuario-nao-autent
 const routes: Routes = [
   {path:'create', component: CreateComponent},
   { path: 'login', component: LoginComponent, canActivate: [UsuarioNaoAutenticadoGuard]},
-  {
-    path: '', component: PrincipalComponent, canActivate: [UsuarioAutenticadoGuard],
+  {path: '', component: PrincipalComponent, canActivate: [UsuarioAutenticadoGuard],
     children: [
       { path: 'home', component: HomeComponent }
     ],
