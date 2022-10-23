@@ -12,7 +12,7 @@ export class TopBarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  deslogar(){
+  logout(){
     this.userService.deslogar();
   }
 }

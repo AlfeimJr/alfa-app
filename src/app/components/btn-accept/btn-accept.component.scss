@@ -1,0 +1,18 @@
+@import '../../styles/colors.scss';
+.btn-group-components{
+    .btn-pattern{
+        button{
+            background-color: $btn-color-active;
+            color: white;
+            border-radius: 4px;
+            &:hover{
+                background-color: $btn-color-hover;
+                transition: 0.5s;
+            }
+            &:disabled{
+                background-color: $btn-color-disabled;
+            }
+            
+        }
+    }
+}

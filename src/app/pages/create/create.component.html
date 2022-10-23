@@ -44,20 +44,15 @@
               name="name">
             </mat-form-field>
             <div class="submit-group">
-              <button
-              mat-raised-button
+              <app-btn-accept 
+              label="Criar" 
               type="submit"
               [disabled]="userForm.pristine"
-              class="submit-form"
-              >
-                Criar
-              </button>
-              <button routerLink="/login"
-              class="submit-form"
-              >
-                Login
-              </button>
-
+              ></app-btn-accept>
+              <app-btn-accept 
+              label="Login" 
+              routerLink="/login"
+              ></app-btn-accept>
             </div>
 
             <p *ngIf="user.email">Usuário criado com sucesso!</p>

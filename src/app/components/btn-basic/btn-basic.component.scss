@@ -1,0 +1,12 @@
+.btn-basic-components{
+    .btn-basic-pattern{
+        button{
+            background-color: transparent;
+            border-radius: 4px;
+            &:hover{
+                color: #002a7d;
+                transition: 0.5s;
+            }
+        }
+    }
+}

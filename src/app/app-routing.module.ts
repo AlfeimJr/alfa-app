@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BtnAcceptComponent } from './components/btn-accept/btn-accept.component';
 import { PrincipalComponent } from './pages/compartilhado/principal/principal.component';
 import { CreateComponent } from './pages/create/create.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [UsuarioNaoAutenticadoGuard]},
   {path: '', component: PrincipalComponent, canActivate: [UsuarioAutenticadoGuard],
     children: [
-      { path: 'home', component: HomeComponent }
+      { path: 'home', component: HomeComponent },
+      { path: 'components', component: BtnAcceptComponent }
     ],
   },
 ];

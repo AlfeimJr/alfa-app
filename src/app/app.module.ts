@@ -16,6 +16,9 @@ import {MatCardModule} from '@angular/material/card';
 import { TokenInterceptor } from './services/interceptors/token.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TopBarComponent } from './pages/top-bar/top-bar.component';
+import { BtnAcceptComponent } from './components/btn-accept/btn-accept.component';
+import {MatButtonModule} from '@angular/material/button';
+import { BtnBasicComponent } from './components/btn-basic/btn-basic.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { TopBarComponent } from './pages/top-bar/top-bar.component';
     HomeComponent,
     PrincipalComponent,
     TopBarComponent,
+    BtnAcceptComponent,
+    BtnBasicComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ import { TopBarComponent } from './pages/top-bar/top-bar.component';
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatButtonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
