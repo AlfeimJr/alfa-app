@@ -1,3 +1,18 @@
-.example-spacer {
-  flex: 1 1 auto;
+.top-bar-alfa{
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .panel-control{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    mat-icon{
+      height: unset;
+      width: unset;
+      font-size: 16px;
+    }
+  }
 }
+

@@ -31,13 +31,17 @@ export class LoginComponent implements OnInit {
 
   logar(){
     if(this.formLogin.invalid) return;
-    var user = this.formLogin.getRawValue() as IUserLogged;
+    let user = this.formLogin.getRawValue() as IUserLogged;
     this.userService.logar(user).subscribe((response) => {
         if(!response.token){
           this.snackBar.open('Falha na autenticação', 'Usuário ou senha incorretos.', {
             duration: 3000
           });
         }
+        localStorage.setItem('token', JSON.stringify(response.token))
+        this.userService.getUser().subscribe((res)=>{
+          localStorage.setItem('user', JSON.stringify(res))
+        })
         this.router.navigate(['home'])
     })
   }

@@ -19,6 +19,7 @@ import { TopBarComponent } from './pages/top-bar/top-bar.component';
 import { BtnAcceptComponent } from './components/btn-accept/btn-accept.component';
 import {MatButtonModule} from '@angular/material/button';
 import { BtnBasicComponent } from './components/btn-basic/btn-basic.component';
+import { PanelControlComponent } from './pages/panel-control/panel-control.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BtnBasicComponent } from './components/btn-basic/btn-basic.component';
     TopBarComponent,
     BtnAcceptComponent,
     BtnBasicComponent,
+    PanelControlComponent,
   ],
   imports: [
     BrowserModule,

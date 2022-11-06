@@ -1,9 +1,10 @@
-<mat-toolbar>
+<mat-toolbar class="top-bar-alfa">
   <span>AllfaShop</span>
   <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <img src="../img/Default-Profile-Picture-Download-PNG-Image.png" alt="">
+  <div  class="panel-control" *ngIf="user?.role == 1" routerLink="panel-control" aria-label="Example icon-button with heart icon">
+    <mat-icon>build</mat-icon>
+    Painel de controle
+  </div>
+  <button (click)="logout()">DESLOGAR</button>
 </mat-toolbar>
-<button (click)="logout()">DESLOGAR</button>
+

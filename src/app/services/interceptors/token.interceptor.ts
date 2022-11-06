@@ -15,26 +15,14 @@ export class TokenInterceptor implements HttpInterceptor {
 
   constructor(private userService : UserService) {}
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const token = this.userService.getTokenUser;
-        const requestUrl: Array<any> = request.url.split('/');
-        const apiUrl: Array<any> = environment.apiUrl.split('/');
+        const token = this.userService.getTokenUser();
 
-        if (token && requestUrl[2] === apiUrl[2]) {
-            request = request.clone({
-                setHeaders: {
-                    Authorization: `Bearer ${token}`,
-                    token: `${token}`
+                if (token) {
+                        request = request.clone({
+                                headers: request.headers.set('Authorization', `Bearer ${token}`),
+                        });
                 }
-            });
-            return next.handle(request).pipe((error:any) => {
-                if (error instanceof HttpErrorResponse && error.status === 401)
-                  this.userService.deslogar();
-                else
-                  return (error.message);
-            });
-        }
-        else {
-            return next.handle(request);
-        }
+
+                return next.handle(request);
     }
 }

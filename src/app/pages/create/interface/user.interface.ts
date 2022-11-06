@@ -10,3 +10,10 @@ export interface IUserLogged{
   email: string,
   password: string
 }
+
+export interface IMe {
+  id: number
+  name: string
+  email: string
+  role: number
+}

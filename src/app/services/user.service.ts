@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IUser, IUserLogged } from '../pages/create/interface/user.interface';
+import { IMe, IUser, IUserLogged } from '../pages/create/interface/user.interface';
 
 const url_api = environment.apiUrl
 
@@ -22,30 +22,28 @@ export class UserService {
     return this.http.post<IUser>(`${url_api}user`, user)
   }
 
-  logar(user: IUserLogged): Observable<{token:string}> {
-    return this.http.post<any>(`${url_api}auth/login`, user).pipe(
-      tap((response)=>{
-        if(response.token){
-          localStorage.setItem('token', JSON.stringify(response.token))
-        }
-      })
-    )
-
-
+  logar(user: IUserLogged): Observable<{ token: string }> {
+    return this.http.post<any>(`${url_api}auth/login`, user)
   }
+
+
+  getUser(): Observable<IMe> {
+		return this.http.get<any>(`${url_api}user/me`)
+	}
+
   deslogar() {
     localStorage.clear();
     this.router.navigate(['login']);
   }
-  get getUserLoggedIn(): IUserLogged {
-    const item =  localStorage.getItem('usuario')
+  get getUserLogged(): IMe {
+    const item =  localStorage.getItem('user')
       return item ? JSON.parse(item) : null
   }
   get getLoggedUserId(): string {
-    const id = localStorage.getItem('usuario')
+    const id = localStorage.getItem('user')
     return id ? JSON.parse(id).id : null;
   }
-  get getTokenUser(): string {
+  getTokenUser(): string {
     const token = localStorage.getItem('token')
     return token ? JSON.parse(token) : null;
   }
