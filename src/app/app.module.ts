@@ -20,6 +20,9 @@ import { BtnAcceptComponent } from './components/btn-accept/btn-accept.component
 import {MatButtonModule} from '@angular/material/button';
 import { BtnBasicComponent } from './components/btn-basic/btn-basic.component';
 import { PanelControlComponent } from './pages/panel-control/panel-control.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { MenuSideComponent } from './pages/menu-side/menu-side.component';
+import { CadastreProductComponent } from './pages/cadastre-product/cadastre-product.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { PanelControlComponent } from './pages/panel-control/panel-control.compo
     BtnAcceptComponent,
     BtnBasicComponent,
     PanelControlComponent,
+    MenuSideComponent,
+    CadastreProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { PanelControlComponent } from './pages/panel-control/panel-control.compo
     MatToolbarModule,
     MatCardModule,
     MatSnackBarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }

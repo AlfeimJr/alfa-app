@@ -1,1 +1,20 @@
-<p>panel-control works!</p>
+<div class="panel-control-container">
+    <section class="panel-control-bar">
+        <div class="profile-group">
+            <img src="https://penser.com.br/wp-content/uploads/2018/06/bom-exemplo-foto-para-linkedin.png" alt="">
+            <p>Olá, {{user?.name}}</p>
+        </div>
+        <div class="menu-content">
+            <div class="menu-item" routerLink="cadastre-product">
+                <mat-icon>inventory 2 </mat-icon>
+                <p>Produtos</p> 
+            </div>
+            <div class="menu-item" >
+                <mat-icon>inventory 2 </mat-icon>
+                <p>Produtos</p> 
+            </div>
+        </div>
+        
+    </section>
+    <router-outlet></router-outlet>
+</div>

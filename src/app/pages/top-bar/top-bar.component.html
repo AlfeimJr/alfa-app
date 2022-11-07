@@ -1,10 +1,20 @@
 <mat-toolbar class="top-bar-alfa">
-  <span>AllfaShop</span>
-  <span class="example-spacer"></span>
-  <div  class="panel-control" *ngIf="user?.role == 1" routerLink="panel-control" aria-label="Example icon-button with heart icon">
+    <span routerLink="home" id="name-logo">AllfaShop</span>
+    <span class="example-spacer"></span>
+  <div class="panel-control" *ngIf="user?.role == 1" routerLink="panel-control"
+    aria-label="Example icon-button with heart icon">
     <mat-icon>build</mat-icon>
-    Painel de controle
   </div>
-  <button (click)="logout()">DESLOGAR</button>
+  <div class="user-menu">
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>person</mat-icon>
+      {{user?.name}}
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Meu perfil</button>
+      <button mat-menu-item (click)="logout()">Sair</button>
+    </mat-menu>
+  </div>
+  
 </mat-toolbar>
-

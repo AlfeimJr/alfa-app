@@ -1,0 +1,14 @@
+.registre-product-container{
+    background-color: #F4F4F4;
+    width: 100%;
+    .top-bar{
+        width: 100%;      
+        p{
+            margin: 0;
+            font-size: 24px;
+        }
+    }
+}
+::ng-deep .registre-product-container .ng-star-inserted{
+    width: 100%;
+}
